@@ -13,7 +13,9 @@ if str(STAGE2_DIR) not in sys.path:
 
 from prismu_stage2.core import (
     assert_real_checkpoint,
+    evaluate,
     generate_gradient_ascent_family,
+    load_model,
     load_split,
     load_yaml,
     make_datasets,
@@ -54,6 +56,30 @@ def selected_families(cfg: dict, role: str, seed: int | None):
     return families
 
 
+def evaluate_family(*, role, seed, cfg, artifact_root, paths, final_seed, device, num_classes, retain_loader, forget_loader, validation_loader, test_loader, log_dir):
+    checkpoints = {
+        "original": original_path(artifact_root, role, seed, paths["stage1_original"], final_seed),
+        "retrain": retrain_path(artifact_root, role, seed, paths["stage1_retrain"], final_seed),
+    }
+    for fraction in cfg["unlearning"]["fractions"]:
+        checkpoints[f"ga{int(fraction)}"] = ga_path(artifact_root, role, seed, int(fraction))
+
+    metrics = {"role": role, "seed": int(seed), "conditions": {}}
+    for condition, checkpoint in checkpoints.items():
+        model = load_model(checkpoint, device, num_classes)
+        metrics["conditions"][condition] = {
+            "checkpoint": str(checkpoint),
+            "retain": evaluate(model, retain_loader, device),
+            "forget": evaluate(model, forget_loader, device),
+            "validation": evaluate(model, validation_loader, device),
+            "test": evaluate(model, test_loader, device),
+        }
+        del model
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+    save_json(metrics, log_dir / "family_evaluation.json")
+
+
 def main():
     args = parse_args()
     repo_root = Path.cwd().resolve()
@@ -77,8 +103,7 @@ def main():
     )
     save_json(split_report, artifact_root / "reports" / "split_validation.json")
 
-    # The seed-42 final family depends on real Stage 1 model bytes. This also catches
-    # an un-pulled LFS pointer before an expensive run starts.
+    # Seed 42 comes from Stage 1. Catch missing Git LFS bytes before expensive work.
     assert_real_checkpoint(paths["stage1_original"])
     assert_real_checkpoint(paths["stage1_retrain"])
 
@@ -153,6 +178,22 @@ def main():
             learning_rate=float(cfg["unlearning"]["learning_rate"]),
             fractions=cfg["unlearning"]["fractions"],
             force=args.force,
+        )
+
+        evaluate_family(
+            role=role,
+            seed=seed,
+            cfg=cfg,
+            artifact_root=artifact_root,
+            paths=paths,
+            final_seed=final_seed,
+            device=device,
+            num_classes=num_classes,
+            retain_loader=retain_loader,
+            forget_loader=forget_loader,
+            validation_loader=validation_loader,
+            test_loader=test_loader,
+            log_dir=log_dir,
         )
 
         manifest = build_model_manifest(cfg, repo_root)
