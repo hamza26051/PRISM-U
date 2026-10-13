@@ -25,3 +25,8 @@ logs/
 
 *.tmp
 *.log
+
+# PRISM-U Stage 2 generated data/model bank. These can be many GB.
+stage2_artifacts/
+.cache/cifar10/
+*.resume.pt
