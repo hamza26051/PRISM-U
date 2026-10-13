@@ -1,0 +1,48 @@
+stage: 2
+
+paths:
+  stage1_project: ./stage1_inputs
+  stage1_split: ./stage1_inputs/cifar10_seed42.json
+  stage1_original: ./stage1_inputs/original_seed42.pt
+  stage1_retrain: ./stage1_inputs/retrain_seed42.pt
+  data_root: /content/prismu_phase2_data/cifar10
+  artifact_root: /content/drive/MyDrive/PRISM-U/phase2
+
+model:
+  name: resnet18_cifar
+  num_classes: 10
+
+training:
+  epochs: 40
+  batch_size: 128
+  learning_rate: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  scheduler_milestones: [20, 30]
+  scheduler_gamma: 0.1
+  label_smoothing: 0.0
+
+unlearning:
+  method: gradient_ascent
+  total_steps: 100
+  learning_rate: 0.0001
+  fractions: [25, 50, 75, 100]
+  batch_size: 128
+
+bank:
+  surrogate_seeds: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112]
+  validation_seeds: [201, 202, 203, 204]
+  final_seed: 42
+
+query_pool:
+  split_name: auxiliary
+  expected_size: 5000
+
+runtime:
+  num_workers: 2
+  eval_batch_size: 256
+
+labels:
+  compliant_conditions: [retrain]
+  noncompliant_conditions: [original, ga25, ga50, ga75]
+  experimental_conditions: [ga100]
