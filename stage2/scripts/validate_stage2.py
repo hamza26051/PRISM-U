@@ -12,7 +12,7 @@ if str(STAGE2_DIR) not in sys.path:
     sys.path.insert(0, str(STAGE2_DIR))
 
 from prismu_stage2.core import load_split, load_yaml, save_json, validate_split
-from prismu_stage2.layout import build_model_manifest, resolved_paths
+from prismu_stage2.layout import build_model_manifest, iter_families, resolved_paths
 
 
 def parse_args():
@@ -50,7 +50,7 @@ def main():
     num_classes = int(cfg["model"]["num_classes"])
 
     split = load_split(paths["stage1_split"])
-    split_report = validate_split(split, {"target_train": 40000, "auxiliary": expected_queries, "validation": 5000})
+    validate_split(split, {"target_train": 40000, "auxiliary": expected_queries, "validation": 5000})
 
     manifest = build_model_manifest(cfg, repo_root)
     expected_counts = {
@@ -120,6 +120,9 @@ def main():
         query_info.update({"size": int(len(query_indices)), "matches_auxiliary_exactly": set(map(int, query_indices)) == set(map(int, split["auxiliary"]))})
     query_info["ok"] = bool(query_ok)
 
+    family_eval_files = [artifact_root / "logs" / role / f"seed{seed}" / "family_evaluation.json" for role, seed in iter_families(cfg)]
+    family_evaluations_ok = all(p.is_file() for p in family_eval_files)
+
     diag_root = artifact_root / "diagnostics"
     diagnostic_files = [
         diag_root / "query_separability.csv",
@@ -131,25 +134,28 @@ def main():
     ]
     diagnostics_ok = all(p.is_file() for p in diagnostic_files)
 
+    final_seed_isolated = int(cfg["bank"]["final_seed"]) not in (seed_sets["surrogate"] | seed_sets["validation"])
     checks = {
         "split_valid": True,
         "model_bank": model_checks,
         "seed_isolation": bool(seed_isolation),
         "labels": {**label_checks, "ok": bool(labels_ok)},
+        "family_evaluations": {"expected": len(family_eval_files), "present": sum(p.is_file() for p in family_eval_files), "ok": bool(family_evaluations_ok)},
         "query_pool": query_info,
         "response_caches": cache_checks,
         "diagnostics_present": bool(diagnostics_ok),
-        "final_seed_not_used_in_reference_banks": bool(int(cfg["bank"]["final_seed"]) not in seed_sets["surrogate"] | seed_sets["validation"]),
+        "final_seed_not_used_in_reference_banks": bool(final_seed_isolated),
     }
 
     complete = (
         all(x["ok"] for x in model_checks.values())
         and seed_isolation
         and labels_ok
+        and family_evaluations_ok
         and query_ok
         and all(x["ok"] for x in cache_checks.values())
         and diagnostics_ok
-        and checks["final_seed_not_used_in_reference_banks"]
+        and final_seed_isolated
     )
 
     report = {
