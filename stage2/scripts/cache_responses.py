@@ -75,14 +75,15 @@ def main():
     manifest_dir.mkdir(parents=True, exist_ok=True)
     manifest.to_csv(manifest_dir / "model_manifest.csv", index=False)
 
-    missing = manifest[~manifest["exists"]]
+    roles = ["surrogate", "validation", "final"] if args.role == "all" else [args.role]
+    selected_manifest = manifest[manifest["role"].isin(roles)]
+    missing = selected_manifest[~selected_manifest["exists"]]
     if not missing.empty:
         example = "\n".join(missing[["model_id", "checkpoint"]].head(10).astype(str).agg(" -> ".join, axis=1))
         raise FileNotFoundError(
-            "Stage 2 model bank is incomplete. Run build_bank.py first. Missing examples:\n" + example
+            "Selected Stage 2 model bank is incomplete. Run build_bank.py first. Missing examples:\n" + example
         )
 
-    roles = ["surrogate", "validation", "final"] if args.role == "all" else [args.role]
     response_root = artifact_root / "responses"
     response_root.mkdir(parents=True, exist_ok=True)
 
