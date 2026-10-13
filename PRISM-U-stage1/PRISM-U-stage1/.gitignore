@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+/data/cifar10/
+/checkpoints/*.pt
+/results/*.json
+/results/*.npz
+/results/*.csv
