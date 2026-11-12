@@ -22,6 +22,12 @@ runs/
 logs/
 
 .ipynb_checkpoints/
+.pytest_cache/
+
+data/cifar10/
+stage2_artifacts/
+checkpoints/
+*.resume.pt
 
 *.tmp
 *.log

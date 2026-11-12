@@ -1,0 +1,256 @@
+{
+  "milestone": 6,
+  "evaluation_bank": "validation (seeds 201-204: 4 HC vs 16 HN; final seed 42 untouched)",
+  "access_mode": "probabilities",
+  "calibrated_bandwidth_loso_surrogate": 1.0,
+  "budgets": [
+    5,
+    10,
+    20,
+    40,
+    80,
+    160
+  ],
+  "policies": {
+    "random": {
+      "policy": "random",
+      "runs": 10,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 200,
+          "auroc": 0.7178125,
+          "auroc_ci_low": 0.62530859375,
+          "auroc_ci_high": 0.805640625,
+          "brier_score": 0.21214347181861215,
+          "mean_llr_hc": 0.07474258311281777,
+          "mean_llr_hn": -0.2152643681781487,
+          "mean_llr_experimental_ga100": -0.21632332566777865
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 200,
+          "auroc": 0.8121875000000001,
+          "auroc_ci_low": 0.7337382812500001,
+          "auroc_ci_high": 0.87672265625,
+          "brier_score": 0.19291112656791673,
+          "mean_llr_hc": 0.3734936288993495,
+          "mean_llr_hn": -0.338278287285628,
+          "mean_llr_experimental_ga100": -0.3446697294206329
+        },
+        "20": {
+          "budget": 20,
+          "n_targets": 200,
+          "auroc": 0.83734375,
+          "auroc_ci_low": 0.7535898437499999,
+          "auroc_ci_high": 0.9048632812499999,
+          "brier_score": 0.16496072115851093,
+          "mean_llr_hc": 0.8171417214017941,
+          "mean_llr_hn": -0.7365893891399338,
+          "mean_llr_experimental_ga100": -0.7360180246240013
+        },
+        "40": {
+          "budget": 40,
+          "n_targets": 200,
+          "auroc": 0.8628125,
+          "auroc_ci_low": 0.7941640624999999,
+          "auroc_ci_high": 0.92188671875,
+          "brier_score": 0.13960322018637497,
+          "mean_llr_hc": 1.0356917771100471,
+          "mean_llr_hn": -1.456564072529229,
+          "mean_llr_experimental_ga100": -1.46718885243155
+        },
+        "80": {
+          "budget": 80,
+          "n_targets": 200,
+          "auroc": 0.91578125,
+          "auroc_ci_low": 0.8591914062499999,
+          "auroc_ci_high": 0.9626640625,
+          "brier_score": 0.07404343691782929,
+          "mean_llr_hc": 1.2331221599024431,
+          "mean_llr_hn": -3.8496185614920604,
+          "mean_llr_experimental_ga100": -3.855613399738381
+        },
+        "160": {
+          "budget": 160,
+          "n_targets": 200,
+          "auroc": 0.92453125,
+          "auroc_ci_low": 0.879046875,
+          "auroc_ci_high": 0.964375,
+          "brier_score": 0.08689842827688066,
+          "mean_llr_hc": 2.8142311447491535,
+          "mean_llr_hn": -6.157119825939698,
+          "mean_llr_experimental_ga100": -6.16656701276501
+        }
+      },
+      "unique_query_trajectories_run0": {
+        "5": 1,
+        "10": 1,
+        "20": 1,
+        "40": 1,
+        "80": 1,
+        "160": 1
+      }
+    },
+    "fixed_topk": {
+      "policy": "fixed_topk",
+      "runs": 1,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.07053508741602324,
+          "mean_llr_hc": 0.6331969155201006,
+          "mean_llr_hn": -1.9941244674982002,
+          "mean_llr_experimental_ga100": -2.0087699787751063
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.022194772166021032,
+          "mean_llr_hc": 2.0594044843226706,
+          "mean_llr_hn": -1.968251088907056,
+          "mean_llr_experimental_ga100": -1.9675909392867976
+        },
+        "20": {
+          "budget": 20,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.029632700599094737,
+          "mean_llr_hc": 2.528782952654608,
+          "mean_llr_hn": -2.7868039863460567,
+          "mean_llr_experimental_ga100": -2.7895319975084947
+        },
+        "40": {
+          "budget": 40,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.010179812892562834,
+          "mean_llr_hc": 4.947269052024577,
+          "mean_llr_hn": -5.6455708302046395,
+          "mean_llr_experimental_ga100": -5.52055626559935
+        },
+        "80": {
+          "budget": 80,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.00043119273404969825,
+          "mean_llr_hc": 9.540491637935672,
+          "mean_llr_hn": -14.18506451680824,
+          "mean_llr_experimental_ga100": -14.072019977158202
+        },
+        "160": {
+          "budget": 160,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 8.467192854004431e-10,
+          "mean_llr_hc": 11.393894652712309,
+          "mean_llr_hn": -21.019141872885584,
+          "mean_llr_experimental_ga100": -21.17378420062759
+        }
+      },
+      "unique_query_trajectories_run0": {
+        "5": 1,
+        "10": 1,
+        "20": 1,
+        "40": 1,
+        "80": 1,
+        "160": 1
+      }
+    },
+    "privacy_blind_active": {
+      "policy": "privacy_blind_active",
+      "runs": 1,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.12343664677382597,
+          "mean_llr_hc": 2.433584078126887,
+          "mean_llr_hn": -1.4688450934180348,
+          "mean_llr_experimental_ga100": -1.071089600361686
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.10072338806082952,
+          "mean_llr_hc": 4.804953725155664,
+          "mean_llr_hn": -2.7767297547051437,
+          "mean_llr_experimental_ga100": -3.2807655409422463
+        },
+        "20": {
+          "budget": 20,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.18397176481600774,
+          "mean_llr_hc": 7.269124119353643,
+          "mean_llr_hn": -4.518061305333798,
+          "mean_llr_experimental_ga100": -7.50630547680948
+        },
+        "40": {
+          "budget": 40,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 3.6637615662788844e-06,
+          "mean_llr_hc": 9.321013519303131,
+          "mean_llr_hn": -11.851909352024533,
+          "mean_llr_experimental_ga100": -15.298198076705548
+        },
+        "80": {
+          "budget": 80,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 2.259648086535527e-12,
+          "mean_llr_hc": 16.957046311202575,
+          "mean_llr_hn": -24.387354582964644,
+          "mean_llr_experimental_ga100": -27.211859151230954
+        },
+        "160": {
+          "budget": 160,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 4.2272862075310185e-20,
+          "mean_llr_hc": 25.25082101663298,
+          "mean_llr_hn": -29.807154664011996,
+          "mean_llr_experimental_ga100": -30.966815119888405
+        }
+      },
+      "unique_query_trajectories_run0": {
+        "5": 9,
+        "10": 10,
+        "20": 20,
+        "40": 21,
+        "80": 24,
+        "160": 24
+      }
+    }
+  }
+}
