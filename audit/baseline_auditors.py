@@ -52,10 +52,17 @@ def run_baseline_audit(
 
     for step_idx in range(1, budget + 1):
         # Pass current state if policy supports response-adaptive scoring
-        if getattr(policy, "name", "") == "privacy_blind_active":
-            qid = policy.select_next(target.transcript, state=state, candidate_ids=candidate_ids)
+        if hasattr(policy, "select_next"):
+            import inspect
+            sig = inspect.signature(policy.select_next)
+            kwargs = {}
+            if "state" in sig.parameters:
+                kwargs["state"] = state
+            if "candidate_ids" in sig.parameters:
+                kwargs["candidate_ids"] = candidate_ids
+            qid = policy.select_next(target.transcript, **kwargs)
         else:
-            qid = policy.select_next(target.transcript, candidate_ids=candidate_ids)
+            raise RuntimeError(f"Policy {type(policy)} does not implement select_next().")
 
         response = target.query(qid)
         state = evidence_model.update(state, int(qid), response)

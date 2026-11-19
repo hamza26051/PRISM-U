@@ -1,0 +1,833 @@
+{
+  "metadata": {
+    "budgets": [
+      5,
+      10
+    ],
+    "privacy_budget": Infinity,
+    "bandwidth": 1.0
+  },
+  "fixed_budget_comparisons": {
+    "random": {
+      "policy": "random",
+      "mode": "fixed_budget",
+      "runs": 1,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 20,
+          "auroc": 0.90625,
+          "auroc_ci_low": 0.6875,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.17620021061088237,
+          "mean_llr_hc": 0.10938750776408668,
+          "mean_llr_hn": -0.40079427103469756,
+          "mean_leakage": 0.7065972222222221,
+          "mean_llr_experimental_ga100": -0.4291695193488767
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 20,
+          "auroc": 0.953125,
+          "auroc_ci_low": 0.8125,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.12732147376926764,
+          "mean_llr_hc": 0.008607199491374729,
+          "mean_llr_hn": -0.8559275033674548,
+          "mean_leakage": 0.8246527777777779,
+          "mean_llr_experimental_ga100": -0.8767690836474573
+        }
+      },
+      "unique_trajectories": {
+        "5": 1,
+        "10": 1
+      }
+    },
+    "fixed_topk": {
+      "policy": "fixed_topk",
+      "mode": "fixed_budget",
+      "runs": 1,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.07053508741602324,
+          "mean_llr_hc": 0.6331969155201006,
+          "mean_llr_hn": -1.9941244674982002,
+          "mean_leakage": 0.9322916666666667,
+          "mean_llr_experimental_ga100": -2.0087699787751063
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.022194772166021032,
+          "mean_llr_hc": 2.0594044843226706,
+          "mean_llr_hn": -1.968251088907056,
+          "mean_leakage": 0.9322916666666667,
+          "mean_llr_experimental_ga100": -1.9675909392867976
+        }
+      },
+      "unique_trajectories": {
+        "5": 1,
+        "10": 1
+      }
+    },
+    "privacy_blind_active": {
+      "policy": "privacy_blind_active",
+      "mode": "fixed_budget",
+      "runs": 1,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.12343664677382597,
+          "mean_llr_hc": 2.433584078126887,
+          "mean_llr_hn": -1.4688450934180348,
+          "mean_leakage": 0.9479166666666667,
+          "mean_llr_experimental_ga100": -1.071089600361686
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 20,
+          "auroc": 1.0,
+          "auroc_ci_low": 1.0,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.10072338806082952,
+          "mean_llr_hc": 4.804953725155664,
+          "mean_llr_hn": -2.7767297547051437,
+          "mean_leakage": 0.9479166666666667,
+          "mean_llr_experimental_ga100": -3.2807655409422463
+        }
+      },
+      "unique_trajectories": {
+        "5": 9,
+        "10": 10
+      }
+    },
+    "static_privacy_aware": {
+      "policy": "static_privacy_aware",
+      "mode": "fixed_budget",
+      "runs": 1,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 20,
+          "auroc": 0.75,
+          "auroc_ci_low": 0.507421875,
+          "auroc_ci_high": 0.953125,
+          "brier_score": 0.15932818356511014,
+          "mean_llr_hc": 0.22962177998144678,
+          "mean_llr_hn": -0.8134878231428306,
+          "mean_leakage": 0.545138888888889,
+          "mean_llr_experimental_ga100": -0.8118906176465475
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 20,
+          "auroc": 0.875,
+          "auroc_ci_low": 0.63984375,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.115329823687353,
+          "mean_llr_hc": 0.7357875470422177,
+          "mean_llr_hn": -1.3460432190234999,
+          "mean_leakage": 0.5555555555555556,
+          "mean_llr_experimental_ga100": -1.2887762956665552
+        }
+      },
+      "unique_trajectories": {
+        "5": 1,
+        "10": 1
+      }
+    },
+    "adaptive_gain_static_privacy": {
+      "policy": "adaptive_gain_static_privacy",
+      "mode": "fixed_budget",
+      "runs": 1,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 20,
+          "auroc": 0.90625,
+          "auroc_ci_low": 0.71875,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.10663167253133173,
+          "mean_llr_hc": -0.13179748562377025,
+          "mean_llr_hn": -2.231954765424778,
+          "mean_leakage": 0.5516493055555557,
+          "mean_llr_experimental_ga100": -2.26253790219883
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 20,
+          "auroc": 0.890625,
+          "auroc_ci_low": 0.75,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.11730621308911973,
+          "mean_llr_hc": -0.8481322783698442,
+          "mean_llr_hn": -4.1963396553355485,
+          "mean_leakage": 0.5689236111111111,
+          "mean_llr_experimental_ga100": -4.4950335688594745
+        }
+      },
+      "unique_trajectories": {
+        "5": 12,
+        "10": 13
+      }
+    },
+    "full_prism_u": {
+      "policy": "full_prism_u",
+      "mode": "fixed_budget",
+      "runs": 1,
+      "budgets": {
+        "5": {
+          "budget": 5,
+          "n_targets": 20,
+          "auroc": 0.9375,
+          "auroc_ci_low": 0.8125,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.11039690125122228,
+          "mean_llr_hc": -0.7903377519120994,
+          "mean_llr_hn": -2.2547737534714645,
+          "mean_leakage": 0.5565972222222223,
+          "mean_llr_experimental_ga100": -2.0148354003830558
+        },
+        "10": {
+          "budget": 10,
+          "n_targets": 20,
+          "auroc": 0.84375,
+          "auroc_ci_low": 0.640625,
+          "auroc_ci_high": 1.0,
+          "brier_score": 0.135993839745488,
+          "mean_llr_hc": -1.0280107114354349,
+          "mean_llr_hn": -3.6092144806023265,
+          "mean_leakage": 0.559375,
+          "mean_llr_experimental_ga100": -3.119862853240366
+        }
+      },
+      "unique_trajectories": {
+        "5": 10,
+        "10": 14
+      }
+    }
+  },
+  "sequential_stopping_comparisons": {
+    "privacy_blind_active": {
+      "policy": "privacy_blind_active",
+      "mode": "sequential_stopping",
+      "decision_metrics": {
+        "n_total": 20,
+        "n_hc": 4,
+        "n_hn": 16,
+        "pass_rate": 0.2,
+        "fail_rate": 0.4,
+        "inconclusive_rate": 0.4,
+        "coverage": 0.6,
+        "false_pass_rate": 0.0,
+        "false_fail_rate": 0.0,
+        "conditional_accuracy": 1.0
+      },
+      "auroc": 1.0,
+      "mean_queries": 7.45,
+      "median_queries": 6.5,
+      "mean_leakage": 0.9479166666666667,
+      "max_leakage": 0.9479166666666666,
+      "targets": [
+        {
+          "model_id": "validation_seed201_retrain",
+          "hypothesis": "HC",
+          "verdict": "PASS",
+          "reason": "threshold_pass",
+          "queries_used": 7,
+          "final_llr": 3.4199607579028397,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed201_original",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.5852116717630391,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed201_ga25",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.5844191434586841,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed201_ga50",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.6012551977960923,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed201_ga75",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.7559573330416485,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed202_retrain",
+          "hypothesis": "HC",
+          "verdict": "PASS",
+          "reason": "threshold_pass",
+          "queries_used": 6,
+          "final_llr": 3.058360988038227,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed202_original",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -4.07022155525023,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed202_ga25",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -4.049835663355607,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed202_ga50",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -4.035120775644874,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed202_ga75",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -4.001936149911645,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed203_retrain",
+          "hypothesis": "HC",
+          "verdict": "PASS",
+          "reason": "threshold_pass",
+          "queries_used": 6,
+          "final_llr": 3.5700859628521613,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed203_original",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": 0.568991514095559,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed203_ga25",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": 0.5705834021368326,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed203_ga50",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": 0.5672813853929763,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed203_ga75",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": 0.5595064574597997,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed204_retrain",
+          "hypothesis": "HC",
+          "verdict": "PASS",
+          "reason": "threshold_pass",
+          "queries_used": 9,
+          "final_llr": 3.710703839655115,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed204_original",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 4,
+          "final_llr": -2.9564949557795734,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed204_ga25",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 4,
+          "final_llr": -2.946509721182096,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed204_ga50",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 4,
+          "final_llr": -2.957837805598328,
+          "cumulative_leakage": 0.9479166666666666
+        },
+        {
+          "model_id": "validation_seed204_ga75",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 5,
+          "final_llr": -3.288956802402746,
+          "cumulative_leakage": 0.9479166666666666
+        }
+      ]
+    },
+    "static_privacy_aware": {
+      "policy": "static_privacy_aware",
+      "mode": "sequential_stopping",
+      "decision_metrics": {
+        "n_total": 20,
+        "n_hc": 4,
+        "n_hn": 16,
+        "pass_rate": 0.05,
+        "fail_rate": 0.0,
+        "inconclusive_rate": 0.95,
+        "coverage": 0.05,
+        "false_pass_rate": 0.0,
+        "false_fail_rate": 0.0,
+        "conditional_accuracy": 1.0
+      },
+      "auroc": 0.875,
+      "mean_queries": 9.9,
+      "median_queries": 10.0,
+      "mean_leakage": 0.5555555555555556,
+      "max_leakage": 0.5555555555555556,
+      "targets": [
+        {
+          "model_id": "validation_seed201_retrain",
+          "hypothesis": "HC",
+          "verdict": "PASS",
+          "reason": "threshold_pass",
+          "queries_used": 8,
+          "final_llr": 3.023959645731564,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed201_original",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.5543016192099461,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed201_ga25",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.5260794169658336,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed201_ga50",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.4791099735963056,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed201_ga75",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.4136047826067175,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed202_retrain",
+          "hypothesis": "HC",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -1.276349306119994,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed202_original",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.098644710906116,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed202_ga25",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.079392753435237,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed202_ga50",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.0699254920863113,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed202_ga75",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.0607493093599807,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed203_retrain",
+          "hypothesis": "HC",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.28370280835189976,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed203_original",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.4420519716569613,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed203_ga25",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.443911688445389,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed203_ga50",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.4268510920561748,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed203_ga75",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.425873651763633,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed204_retrain",
+          "hypothesis": "HC",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": 1.1625939853668539,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed204_original",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.40968682889700525,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed204_ga25",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.38500420482579,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed204_ga50",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.3712872070027746,
+          "cumulative_leakage": 0.5555555555555556
+        },
+        {
+          "model_id": "validation_seed204_ga75",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.3502168015618232,
+          "cumulative_leakage": 0.5555555555555556
+        }
+      ]
+    },
+    "full_prism_u": {
+      "policy": "full_prism_u",
+      "mode": "sequential_stopping",
+      "decision_metrics": {
+        "n_total": 20,
+        "n_hc": 4,
+        "n_hn": 16,
+        "pass_rate": 0.05,
+        "fail_rate": 0.7,
+        "inconclusive_rate": 0.25,
+        "coverage": 0.75,
+        "false_pass_rate": 0.0,
+        "false_fail_rate": 0.5,
+        "conditional_accuracy": 0.8666666666666667
+      },
+      "auroc": 0.5,
+      "mean_queries": 7.85,
+      "median_queries": 8.0,
+      "mean_leakage": 0.559375,
+      "max_leakage": 0.6076388888888888,
+      "targets": [
+        {
+          "model_id": "validation_seed201_retrain",
+          "hypothesis": "HC",
+          "verdict": "PASS",
+          "reason": "threshold_pass",
+          "queries_used": 7,
+          "final_llr": 3.0202602148686144,
+          "cumulative_leakage": 0.5486111111111112
+        },
+        {
+          "model_id": "validation_seed201_original",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -3.1816666468149366,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed201_ga25",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -3.169260432535465,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed201_ga50",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -3.152173985903618,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed201_ga75",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -3.124041198874223,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed202_retrain",
+          "hypothesis": "HC",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 9,
+          "final_llr": -3.2950542931900664,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed202_original",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 9,
+          "final_llr": -3.1879022959146717,
+          "cumulative_leakage": 0.5486111111111112
+        },
+        {
+          "model_id": "validation_seed202_ga25",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -3.008829163605281,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed202_ga50",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -2.978693912858565,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed202_ga75",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 6,
+          "final_llr": -2.9475176185961693,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed203_retrain",
+          "hypothesis": "HC",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -1.790723694114583,
+          "cumulative_leakage": 0.6076388888888888
+        },
+        {
+          "model_id": "validation_seed203_original",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.858150605044488,
+          "cumulative_leakage": 0.5833333333333333
+        },
+        {
+          "model_id": "validation_seed203_ga25",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.883686895867149,
+          "cumulative_leakage": 0.5833333333333333
+        },
+        {
+          "model_id": "validation_seed203_ga50",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -2.922083299547551,
+          "cumulative_leakage": 0.5833333333333333
+        },
+        {
+          "model_id": "validation_seed203_ga75",
+          "hypothesis": "HN",
+          "verdict": "INCONCLUSIVE",
+          "reason": "query_budget_exhausted",
+          "queries_used": 10,
+          "final_llr": -0.6125287549303611,
+          "cumulative_leakage": 0.5833333333333333
+        },
+        {
+          "model_id": "validation_seed204_retrain",
+          "hypothesis": "HC",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 9,
+          "final_llr": -3.3483399293734166,
+          "cumulative_leakage": 0.6076388888888888
+        },
+        {
+          "model_id": "validation_seed204_original",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 8,
+          "final_llr": -3.056814550903531,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed204_ga25",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 8,
+          "final_llr": -3.069014210559194,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed204_ga50",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 8,
+          "final_llr": -3.066756076412234,
+          "cumulative_leakage": 0.5451388888888888
+        },
+        {
+          "model_id": "validation_seed204_ga75",
+          "hypothesis": "HN",
+          "verdict": "FAIL",
+          "reason": "threshold_fail",
+          "queries_used": 7,
+          "final_llr": -3.3313525799964903,
+          "cumulative_leakage": 0.5451388888888888
+        }
+      ]
+    }
+  }
+}

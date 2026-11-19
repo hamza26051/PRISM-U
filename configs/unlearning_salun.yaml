@@ -1,0 +1,22 @@
+stage: 2
+
+paths:
+  stage1_split: ./splits/cifar10_seed42.json
+  stage1_original: ./checkpoints/original_seed42.pt
+  stage1_retrain: ./checkpoints/retrain_seed42.pt
+  data_root: ./data/cifar10
+  artifact_root: ./stage2_artifacts
+
+unlearning:
+  method: salun
+  total_steps: 100
+  learning_rate: 0.001
+  saliency_fraction: 0.01
+  fractions: [25, 50, 75, 100]
+  batch_size: 128
+  num_workers: 0
+
+bank:
+  surrogate_seeds: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112]
+  validation_seeds: [201, 202, 203, 204]
+  final_seed: 42

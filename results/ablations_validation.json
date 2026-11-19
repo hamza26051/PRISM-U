@@ -1,0 +1,135 @@
+{
+  "full_prism_u": {
+    "ablation_name": "Full PRISM-U (Default Reference)",
+    "decision_metrics": {
+      "n_total": 20,
+      "n_hc": 4,
+      "n_hn": 16,
+      "pass_rate": 0.05,
+      "fail_rate": 0.95,
+      "inconclusive_rate": 0.0,
+      "coverage": 1.0,
+      "false_pass_rate": 0.0,
+      "false_fail_rate": 0.75,
+      "conditional_accuracy": 0.85
+    },
+    "auroc": 0.5,
+    "mean_queries": 8.65,
+    "mean_leakage": 0.5596354166666668,
+    "max_leakage": 0.6076388888888888
+  },
+  "A1_no_privacy_penalty": {
+    "ablation_name": "A1: No Privacy Penalty (lambda=0, B_P=inf)",
+    "decision_metrics": {
+      "n_total": 20,
+      "n_hc": 4,
+      "n_hn": 16,
+      "pass_rate": 0.4,
+      "fail_rate": 0.6,
+      "inconclusive_rate": 0.0,
+      "coverage": 1.0,
+      "false_pass_rate": 0.25,
+      "false_fail_rate": 0.0,
+      "conditional_accuracy": 0.8
+    },
+    "auroc": 0.5,
+    "mean_queries": 9.9,
+    "mean_leakage": 0.9479166666666667,
+    "max_leakage": 0.9479166666666666
+  },
+  "A2_no_early_stopping": {
+    "ablation_name": "A2: No Early Stopping (force to B_Q)",
+    "decision_metrics": {
+      "n_total": 20,
+      "n_hc": 4,
+      "n_hn": 16,
+      "pass_rate": 0.05,
+      "fail_rate": 0.95,
+      "inconclusive_rate": 0.0,
+      "coverage": 1.0,
+      "false_pass_rate": 0.0,
+      "false_fail_rate": 0.75,
+      "conditional_accuracy": 0.85
+    },
+    "auroc": 0.5,
+    "mean_queries": 20.0,
+    "mean_leakage": 0.5702256944444443,
+    "max_leakage": 0.6145833333333333
+  },
+  "A3_static_risk": {
+    "ablation_name": "A3: Static Risk R(x) (No Transcript Conditioning)",
+    "decision_metrics": {
+      "n_total": 20,
+      "n_hc": 4,
+      "n_hn": 16,
+      "pass_rate": 0.05,
+      "fail_rate": 0.6,
+      "inconclusive_rate": 0.35,
+      "coverage": 0.65,
+      "false_pass_rate": 0.0,
+      "false_fail_rate": 0.0,
+      "conditional_accuracy": 1.0
+    },
+    "auroc": 0.5,
+    "mean_queries": 15.4,
+    "mean_leakage": 0.6190972222222223,
+    "max_leakage": 0.6458333333333334
+  },
+  "A4_static_gain": {
+    "ablation_name": "A4: Static Gain G(x) (No Posterior Mixture Gain)",
+    "decision_metrics": {
+      "n_total": 20,
+      "n_hc": 4,
+      "n_hn": 16,
+      "pass_rate": 0.1,
+      "fail_rate": 0.8,
+      "inconclusive_rate": 0.1,
+      "coverage": 0.9,
+      "false_pass_rate": 0.0,
+      "false_fail_rate": 0.0,
+      "conditional_accuracy": 1.0
+    },
+    "auroc": 0.5,
+    "mean_queries": 12.5,
+    "mean_leakage": 0.6282986111111111,
+    "max_leakage": 0.6493055555555556
+  },
+  "A5_no_feasibility_filter": {
+    "ablation_name": "A5: No Feasibility Filter (Soft Penalty Only)",
+    "decision_metrics": {
+      "n_total": 20,
+      "n_hc": 4,
+      "n_hn": 16,
+      "pass_rate": 0.05,
+      "fail_rate": 0.95,
+      "inconclusive_rate": 0.0,
+      "coverage": 1.0,
+      "false_pass_rate": 0.0,
+      "false_fail_rate": 0.75,
+      "conditional_accuracy": 0.85
+    },
+    "auroc": 0.5,
+    "mean_queries": 8.65,
+    "mean_leakage": 0.5596354166666668,
+    "max_leakage": 0.6076388888888888
+  },
+  "A6_ratio_acquisition": {
+    "ablation_name": "A6: Ratio Acquisition G / (Delta L + eps)",
+    "decision_metrics": {
+      "n_total": 20,
+      "n_hc": 4,
+      "n_hn": 16,
+      "pass_rate": 0.1,
+      "fail_rate": 0.9,
+      "inconclusive_rate": 0.0,
+      "coverage": 1.0,
+      "false_pass_rate": 0.0,
+      "false_fail_rate": 0.5,
+      "conditional_accuracy": 0.9
+    },
+    "auroc": 0.5,
+    "mean_queries": 8.2,
+    "mean_leakage": 0.5375000000000002,
+    "max_leakage": 0.5451388888888888
+  }
+}
