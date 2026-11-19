@@ -50,6 +50,7 @@ from utils.io import load_yaml, save_json
 def parse_args():
     p = argparse.ArgumentParser(description="Run PRISM-U comparative evaluations on validation bank.")
     p.add_argument("--config", default="configs/stage2.yaml")
+    p.add_argument("--target-bank", choices=["validation", "final"], default="validation")
     p.add_argument("--budgets", nargs="+", type=int, default=[5, 10, 20, 40, 80])
     p.add_argument("--privacy-budget", type=float, default=float("inf"))
     p.add_argument("--random-seeds", type=int, default=5)
@@ -229,7 +230,7 @@ def main():
     artifact_root = (repo_root / cfg["paths"]["artifact_root"]).resolve()
 
     surrogate_cache = artifact_root / "responses" / "surrogate_responses.npz"
-    val_cache = artifact_root / "responses" / "validation_responses.npz"
+    val_cache = artifact_root / "responses" / f"{args.target_bank}_responses.npz"
 
     print("Calibrating evidence model strictly on surrogate bank...", flush=True)
     evidence_model = SurrogateEvidenceModel.from_surrogate_cache(
